@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Support &amp; FAQ — Tiny Realms</title>
+  <meta name="description" content="Player support, frequently asked questions, ad privacy controls, and local data deletion guide for Tiny Realms (com.tinyrealms.roguelite)." />
+  <meta name="theme-color" content="#1C202E" />
+  <link rel="icon" type="image/png" href="./assets/icon-round.png" />
+  <style>
+    :root {
+      --ink: #1C202E;
+      --surface: #272C3D;
+      --surface-alt: #212636;
+      --border: #3A4159;
+      --cream: #FFF3D9;
+      --muted: #C9C0AF;
+      --gold: #FFD76A;
+      --turq: #54DAC5;
+      --coral: #F47775;
+      --green: #75CB6B;
+      --radius: 16px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: radial-gradient(circle at top center, #252B3F 0%, var(--ink) 62%);
+      color: var(--cream);
+      font-family: 'Segoe UI', system-ui, -apple-system, Roboto, sans-serif;
+      line-height: 1.7;
+      min-height: 100vh;
+    }
+
+    a { color: var(--turq); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .container {
+      width: 100%;
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(28, 32, 46, 0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      padding: 12px 0;
+      flex-wrap: wrap;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: 'Trebuchet MS', 'Segoe UI', system-ui, sans-serif;
+      font-weight: 800;
+      font-size: 1.15rem;
+      color: var(--cream);
+    }
+
+    .brand img {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      border: 2px solid var(--gold);
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      padding: 4px 6px;
+      border-radius: 8px;
+    }
+
+    .nav-links a.active,
+    .nav-links a:hover {
+      color: var(--gold);
+      text-decoration: none;
+      background: rgba(255, 215, 106, 0.08);
+    }
+
+    .lang-switch {
+      display: inline-flex;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .lang-btn {
+      background: transparent;
+      border: 0;
+      color: var(--muted);
+      font-weight: 700;
+      font-size: 0.82rem;
+      padding: 6px 10px;
+      cursor: pointer;
+    }
+
+    .lang-btn.active {
+      background: var(--gold);
+      color: var(--ink);
+    }
+
+    main { padding: 34px 0 24px; }
+
+    .doc-header {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 26px;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      font-family: 'Trebuchet MS', 'Segoe UI', system-ui, sans-serif;
+      font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+      margin: 0 0 8px;
+      color: var(--gold);
+    }
+
+    .meta {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .meta code {
+      background: var(--ink);
+      color: var(--turq);
+      padding: 2px 7px;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px 26px;
+      margin-bottom: 16px;
+    }
+
+    .card h2 {
+      font-family: 'Trebuchet MS', 'Segoe UI', system-ui, sans-serif;
+      font-size: 1.25rem;
+      margin: 0 0 12px;
+      color: var(--gold);
+    }
+
+    .faq-item {
+      border-top: 1px solid var(--border);
+      padding-top: 14px;
+      margin-top: 14px;
+    }
+
+    .faq-item:first-of-type {
+      border-top: 0;
+      padding-top: 0;
+      margin-top: 0;
+    }
+
+    .faq-item h3 {
+      font-family: 'Trebuchet MS', 'Segoe UI', system-ui, sans-serif;
+      font-size: 1.04rem;
+      margin: 0 0 6px;
+      color: var(--turq);
+    }
+
+    .faq-item p,
+    .card p {
+      margin: 0 0 10px;
+      color: var(--cream);
+    }
+
+    .card p:last-child,
+    .faq-item p:last-child { margin-bottom: 0; }
+
+    ul {
+      margin: 6px 0 0;
+      padding-left: 20px;
+      color: var(--muted);
+    }
+
+    li { margin-bottom: 6px; }
+    li strong { color: var(--cream); }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--gold);
+      color: var(--ink);
+      font-weight: 800;
+      padding: 10px 18px;
+      border-radius: 12px;
+      box-shadow: 0 4px 0 #C59B34;
+      margin-top: 8px;
+    }
+    .btn:hover { text-decoration: none; transform: translateY(-1px); }
+
+    footer {
+      border-top: 1px solid var(--border);
+      margin-top: 28px;
+      padding: 24px 0 36px;
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+
+    .footer-inner {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 14px;
+      align-items: center;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .i18n-tr { display: none; }
+    .i18n-tr-inline { display: none; }
+    body.lang-tr .i18n-en { display: none; }
+    body.lang-tr .i18n-en-inline { display: none; }
+    body.lang-tr .i18n-tr { display: block; }
+    body.lang-tr .i18n-tr-inline { display: inline; }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container nav-inner">
+      <a class="brand" href="./index.html">
+        <img src="./assets/icon-round.png" alt="Tiny Realms icon" />
+        <span>Tiny Realms</span>
+      </a>
+      <div class="nav-right">
+        <nav class="nav-links" aria-label="Main navigation">
+          <a href="./index.html">
+            <span class="i18n-en-inline">Home</span>
+            <span class="i18n-tr-inline">Ana Sayfa</span>
+          </a>
+          <a href="./privacy.html">
+            <span class="i18n-en-inline">Privacy</span>
+            <span class="i18n-tr-inline">Gizlilik</span>
+          </a>
+          <a href="./terms.html">
+            <span class="i18n-en-inline">Terms</span>
+            <span class="i18n-tr-inline">Koşullar</span>
+          </a>
+          <a class="active" href="./support.html">
+            <span class="i18n-en-inline">Support</span>
+            <span class="i18n-tr-inline">Destek</span>
+          </a>
+        </nav>
+        <div class="lang-switch" role="group" aria-label="Language switch">
+          <button type="button" class="lang-btn active" id="btn-en" onclick="setLang('en')">EN</button>
+          <button type="button" class="lang-btn" id="btn-tr" onclick="setLang('tr')">TR</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="doc-header">
+      <h1>
+        <span class="i18n-en-inline">Player Support &amp; FAQ</span>
+        <span class="i18n-tr-inline">Oyuncu Desteği &amp; SSS</span>
+      </h1>
+      <div class="meta i18n-en">
+        Need help with <strong>Tiny Realms</strong> (<code>com.tinyrealms.roguelite</code>)? Find quick answers or contact us directly below.
+      </div>
+      <div class="meta i18n-tr">
+        <strong>Tiny Realms</strong> (<code>com.tinyrealms.roguelite</code>) ile ilgili yardıma mı ihtiyacınız var? Aşağıdaki yanıtları inceleyebilir veya doğrudan iletişime geçebilirsiniz.
+      </div>
+    </section>
+
+    <div class="i18n-en">
+      <section class="card">
+        <h2>Contact Developer Support</h2>
+        <p>
+          If you encounter a bug, crash, or feedback item, email us at
+          <a href="mailto:tinyrealms@hotmail.com">tinyrealms@hotmail.com</a>.
+          To help us investigate quickly, please include:
+        </p>
+        <ul>
+          <li><strong>Device Model:</strong> e.g. Samsung Galaxy S23, Pixel 8, Xiaomi Redmi Note</li>
+          <li><strong>Android Version:</strong> e.g. Android 14 / Android 15</li>
+          <li><strong>Game Version:</strong> Check the bottom of the in-game <em>Settings</em> screen (e.g. Tiny Realms 1.0)</li>
+          <li><strong>Issue Description:</strong> What happened and which realm/stage you were in</li>
+        </ul>
+        <a class="btn" href="mailto:tinyrealms@hotmail.com?subject=Tiny%20Realms%20Support">Email Support</a>
+      </section>
+
+      <section class="card">
+        <h2>Frequently Asked Questions</h2>
+
+        <div class="faq-item">
+          <h3>How do automatic Stage Checkpoints work?</h3>
+          <p>
+            Every standard run has 3 stages. Whenever you clear <strong>Stage 1</strong> or <strong>Stage 2</strong>, Tiny Realms automatically saves a checkpoint on your device. If you exit the app and reopen the World Map later, you can resume right from the stage where you left off.
+          </p>
+        </div>
+
+        <div class="faq-item">
+          <h3>How do I unlock the Side Quest Rift and Endless Mode?</h3>
+          <p>
+            Defeating the bosses of the <strong>first 3 story realms</strong> unlocks the smaller <strong>Side Quest Rift</strong> portal beside the main portal, featuring 3 boss-less maps with stronger mixed enemies. Completing all <strong>3 Side Quest Rifts</strong> unlocks <strong>Endless Mode</strong>, which combines random realms into 3-stage runs every time you enter.
+          </p>
+        </div>
+
+        <div class="faq-item">
+          <h3>How do I manage Ad Privacy &amp; Consent options?</h3>
+          <p>
+            In regions where consent options apply (such as the EEA and UK), open in-game <strong>Settings &rarr; Privacy &amp; Ads &rarr; Ad Privacy Options</strong> at any time. You can also reset or limit ad personalization in Android's system <strong>Settings &rarr; Google &rarr; Ads</strong>.
+          </p>
+        </div>
+
+        <div class="faq-item">
+          <h3>How do I delete all saved game data?</h3>
+          <p>
+            Tiny Realms stores all progress locally on your device with no server account. To erase everything permanently, open <strong>Settings &rarr; Save data &rarr; Reset All Progress</strong> and confirm, or simply uninstall Tiny Realms from your Android device.
+          </p>
+        </div>
+      </section>
+    </div>
+
+    <div class="i18n-tr">
+      <section class="card">
+        <h2>Geliştirici Desteği ile İletişim</h2>
+        <p>
+          Hata, çökme veya öneri bildirmek için bize
+          <a href="mailto:tinyrealms@hotmail.com">tinyrealms@hotmail.com</a>
+          adresinden ulaşabilirsiniz. Daha hızlı yardımcı olabilmemiz için e-postanıza şunları ekleyin:
+        </p>
+        <ul>
+          <li><strong>Cihaz Modeli:</strong> Örn. Samsung Galaxy S23, Xiaomi Redmi Note</li>
+          <li><strong>Android Sürümü:</strong> Örn. Android 14 / Android 15</li>
+          <li><strong>Oyun Sürümü:</strong> Oyun içindeki <em>Settings</em> ekranının en altında yazar (örn. Tiny Realms 1.0)</li>
+          <li><strong>Sorunun Açıklaması:</strong> Ne olduğu ve hangi harita/bölümde gerçekleştiği</li>
+        </ul>
+        <a class="btn" href="mailto:tinyrealms@hotmail.com?subject=Tiny%20Realms%20Destek">Destek E-postası Gönder</a>
+      </section>
+
+      <section class="card">
+        <h2>Sıkça Sorulan Sorular</h2>
+
+        <div class="faq-item">
+          <h3>Otomatik bölüm kaydı (Checkpoint) nasıl çalışır?</h3>
+          <p>
+            Bir oyun turu 3 bölümden oluşur. <strong>1. bölümü</strong> veya <strong>2. bölümü</strong> tamamladığınızda oyun cihazınıza otomatik kayıt alır. Oyundan çıksanız bile Dünya Haritası üzerinden kaldığınız bölümden devam edebilirsiniz.
+          </p>
+        </div>
+
+        <div class="faq-item">
+          <h3>Yan Görev Yarığı ve Sonsuz Mod nasıl açılır?</h3>
+          <p>
+            Ana hikâyedeki <strong>ilk 3 diyarı</strong> tamamladığınızda ana portalın yanında ikinci bir <strong>Yan Görev Yarığı</strong> portalı açılır; burada boss içermeyen, farklı diyarlardan karışık ve daha güçlü yaratıkların bulunduğu 3 yan görev haritası yer alır. Bu <strong>3 yan görev haritasının</strong> tamamını bitirdiğinizde ise her girişte farklı diyarları birleştiren 3 bölümlü <strong>Sonsuz Mod</strong> açılır.
+          </p>
+        </div>
+
+        <div class="faq-item">
+          <h3>Reklam Gizliliği ve Rıza tercihlerimi nasıl yönetirim?</h3>
+          <p>
+            Yasal rıza seçeneklerinin geçerli olduğu bölgelerde oyun içinden <strong>Settings &rarr; Privacy &amp; Ads &rarr; Ad Privacy Options</strong> menüsünü kullanabilirsiniz. Ayrıca Android sistem ayarlarından <strong>Ayarlar &rarr; Google &rarr; Reklamlar</strong> üzerinden reklam kişiselleştirmesini kapatabilir veya Reklam Kimliğini sıfırlayabilirsiniz.
+          </p>
+        </div>
+
+        <div class="faq-item">
+          <h3>Tüm kayıtlı oyun verilerimi nasıl silebilirim?</h3>
+          <p>
+            Tiny Realms tüm ilerlemeyi yalnızca cihazınızda yerel olarak tutar; sunucu hesabı yoktur. Tüm verileri kalıcı olarak silmek için oyun içinden <strong>Settings &rarr; Save data &rarr; Reset All Progress</strong> seçeneğini onaylayabilir veya oyunu cihazınızdan kaldırabilirsiniz.
+          </p>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <div>&copy; 2026 Tiny Realms (<code>com.tinyrealms.roguelite</code>)</div>
+      <div class="footer-links">
+        <a href="./index.html">
+          <span class="i18n-en-inline">Home</span>
+          <span class="i18n-tr-inline">Ana Sayfa</span>
+        </a>
+        <a href="./privacy.html">
+          <span class="i18n-en-inline">Privacy Policy</span>
+          <span class="i18n-tr-inline">Gizlilik Politikası</span>
+        </a>
+        <a href="./terms.html">
+          <span class="i18n-en-inline">Terms of Service</span>
+          <span class="i18n-tr-inline">Kullanım Koşulları</span>
+        </a>
+        <a href="./app-ads.txt">app-ads.txt</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function setLang(lang) {
+      var isTr = lang === 'tr';
+      document.body.classList.toggle('lang-tr', isTr);
+      document.documentElement.lang = isTr ? 'tr' : 'en';
+      document.getElementById('btn-en').classList.toggle('active', !isTr);
+      document.getElementById('btn-tr').classList.toggle('active', isTr);
+      try { localStorage.setItem('tinyrealms_lang', isTr ? 'tr' : 'en'); } catch (e) {}
+    }
+    (function () {
+      try {
+        var q = new URLSearchParams(window.location.search).get('lang');
+        var saved = localStorage.getItem('tinyrealms_lang');
+        if (q === 'tr' || (!q && saved === 'tr')) setLang('tr');
+      } catch (e) {}
+    })();
+  </script>
+</body>
+</html>

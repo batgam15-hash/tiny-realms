@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tiny Realms — Action Roguelite RPG</title>
+  <meta name="description" content="Battle through handcrafted dungeon realms, upgrade your village, conquer Side Quest Rifts, and unlock Endless Mode in Tiny Realms for Android." />
+  <meta name="theme-color" content="#1C202E" />
+  <link rel="icon" type="image/png" href="./assets/icon-round.png" />
+  <style>
+    :root {
+      --ink: #1C202E;
+      --surface: #272C3D;
+      --surface-alt: #212636;
+      --border: #3A4159;
+      --cream: #FFF3D9;
+      --muted: #C9C0AF;
+      --gold: #FFD76A;
+      --turq: #54DAC5;
+      --coral: #F47775;
+      --purple: #A883EA;
+      --green: #75CB6B;
+      --radius: 16px;
+      --shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: radial-gradient(circle at top center, #252B3F 0%, var(--ink) 62%);
+      color: var(--cream);
+      font-family: 'Segoe UI', system-ui, -apple-system, Roboto, sans-serif;
+      line-height: 1.65;
+      min-height: 100vh;
+    }
+
+    a {
+      color: var(--turq);
+      text-decoration: none;
+    }
+    a:hover { text-decoration: underline; }
+
+    .container {
+      width: 100%;
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(28, 32, 46, 0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      padding: 12px 0;
+      flex-wrap: wrap;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: 'Trebuchet MS', 'Segoe UI', system-ui, sans-serif;
+      font-weight: 800;
+      font-size: 1.15rem;
+      color: var(--cream);
+      letter-spacing: 0.3px;
+    }
+
+    .brand img {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      border: 2px solid var(--gold);
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      padding: 4px 6px;
+      border-radius: 8px;
+    }
+
+    .nav-links a.active,
+    .nav-links a:hover {
+      color: var(--gold);
+      text-decoration: none;
+      background: rgba(255, 215, 106, 0.08);
+    }
+
+    .lang-switch {
+      display: inline-flex;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .lang-btn {
+      background: transparent;
+      border: 0;
+      color: var(--muted);
+      font-weight: 700;
+      font-size: 0.82rem;
+      padding: 6px 10px;
+      cursor: pointer;
+    }
+
+    .lang-btn.active {
+      background: var(--gold);
+      color: var(--ink);
+    }
+
+    .hero {
+      padding: 46px 0 30px;
+    }
+
+    .hero-card {
+      background: linear-gradient(145deg, #2C3246 0%, var(--surface) 100%);
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      padding: 34px 28px;
+      box-shadow: var(--shadow);
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .hero-icon {
+      width: 112px;
+      height: 112px;
+      border-radius: 26px;
+      border: 3px solid var(--gold);
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.45);
+      display: block;
+    }
+
+    .badge {
+      display: inline-block;
+      background: rgba(84, 218, 197, 0.14);
+      border: 1px solid rgba(84, 218, 197, 0.4);
+      color: var(--turq);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.7px;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 999px;
+      margin-bottom: 10px;
+    }
+
+    h1, h2, h3 {
+      font-family: 'Trebuchet MS', 'Segoe UI', system-ui, sans-serif;
+      margin: 0 0 10px;
+      color: var(--cream);
+      line-height: 1.25;
+    }
+
+    h1 { font-size: clamp(1.9rem, 4vw, 2.6rem); }
+    h2 { font-size: 1.45rem; color: var(--gold); margin-bottom: 16px; }
+    h3 { font-size: 1.08rem; }
+
+    .lead {
+      color: var(--muted);
+      font-size: 1.05rem;
+      margin: 0 0 22px;
+      max-width: 620px;
+    }
+
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 11px 18px;
+      border-radius: 12px;
+      font-weight: 800;
+      font-size: 0.95rem;
+      border: 2px solid transparent;
+      transition: transform 0.12s ease, opacity 0.12s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+      text-decoration: none;
+    }
+
+    .btn-primary {
+      background: var(--gold);
+      color: var(--ink);
+      box-shadow: 0 4px 0 #C59B34;
+    }
+
+    .btn-secondary {
+      background: var(--surface-alt);
+      color: var(--cream);
+      border-color: var(--border);
+    }
+
+    .btn-secondary:hover { border-color: var(--turq); color: var(--turq); }
+
+    .section {
+      padding: 18px 0 32px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 16px;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.22);
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .dot {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      margin-right: 8px;
+    }
+
+    .dot-gold { background: var(--gold); }
+    .dot-purple { background: var(--purple); }
+    .dot-coral { background: var(--coral); }
+    .dot-green { background: var(--green); }
+    .dot-turq { background: var(--turq); }
+
+    .meta-panel {
+      background: var(--surface-alt);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .meta-panel code {
+      background: var(--ink);
+      color: var(--turq);
+      padding: 4px 9px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      font-size: 0.9rem;
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      margin-top: 28px;
+      padding: 24px 0 36px;
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+
+    .footer-inner {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 14px;
+      align-items: center;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .i18n-tr { display: none; }
+    .i18n-tr-inline { display: none; }
+    body.lang-tr .i18n-en { display: none; }
+    body.lang-tr .i18n-en-inline { display: none; }
+    body.lang-tr .i18n-tr { display: block; }
+    body.lang-tr .i18n-tr-inline { display: inline; }
+
+    @media (max-width: 680px) {
+      .hero-card {
+        grid-template-columns: 1fr;
+        text-align: center;
+        padding: 26px 20px;
+      }
+      .hero-icon { margin: 0 auto; }
+      .cta-row { justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container nav-inner">
+      <a class="brand" href="./index.html">
+        <img src="./assets/icon-round.png" alt="Tiny Realms icon" />
+        <span>Tiny Realms</span>
+      </a>
+      <div class="nav-right">
+        <nav class="nav-links" aria-label="Main navigation">
+          <a class="active" href="./index.html">
+            <span class="i18n-en-inline">Home</span>
+            <span class="i18n-tr-inline">Ana Sayfa</span>
+          </a>
+          <a href="./privacy.html">
+            <span class="i18n-en-inline">Privacy</span>
+            <span class="i18n-tr-inline">Gizlilik</span>
+          </a>
+          <a href="./terms.html">
+            <span class="i18n-en-inline">Terms</span>
+            <span class="i18n-tr-inline">Koşullar</span>
+          </a>
+          <a href="./support.html">
+            <span class="i18n-en-inline">Support</span>
+            <span class="i18n-tr-inline">Destek</span>
+          </a>
+        </nav>
+        <div class="lang-switch" role="group" aria-label="Language switch">
+          <button type="button" class="lang-btn active" id="btn-en" onclick="setLang('en')">EN</button>
+          <button type="button" class="lang-btn" id="btn-tr" onclick="setLang('tr')">TR</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div class="hero-card">
+        <img class="hero-icon" src="./assets/icon.png" alt="Tiny Realms app icon" />
+        <div>
+          <span class="badge">
+            <span class="i18n-en-inline">Android Action Roguelite</span>
+            <span class="i18n-tr-inline">Android Aksiyon Roguelite</span>
+          </span>
+          <h1>Tiny Realms</h1>
+          <p class="lead i18n-en">
+            Battle through procedural dungeons, unleash Elemental Bursts, defeat realm guardians, rebuild your village, conquer Side Quest Rifts, and push your limits in Endless Mode.
+          </p>
+          <p class="lead i18n-tr">
+            Rastgele zindanlarda savaş, Element Patlamaları kullan, diyar boss'larını yen, köyünü geliştir, Yan Görev Yarıklarını fethet ve Sonsuz Mod'da sınırlarını zorla.
+          </p>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="https://play.google.com/store/apps/details?id=com.tinyrealms.roguelite" target="_blank" rel="noopener noreferrer">
+              <span class="i18n-en-inline">Get on Google Play</span>
+              <span class="i18n-tr-inline">Google Play'den İndir</span>
+            </a>
+            <a class="btn btn-secondary" href="./privacy.html">
+              <span class="i18n-en-inline">Privacy Policy</span>
+              <span class="i18n-tr-inline">Gizlilik Politikası</span>
+            </a>
+            <a class="btn btn-secondary" href="./support.html">
+              <span class="i18n-en-inline">Support &amp; FAQ</span>
+              <span class="i18n-tr-inline">Destek &amp; SSS</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>
+        <span class="i18n-en-inline">Key Features</span>
+        <span class="i18n-tr-inline">Öne Çıkan Özellikler</span>
+      </h2>
+      <div class="grid">
+        <article class="card">
+          <h3><span class="dot dot-gold"></span><span class="i18n-en-inline">6 Story Realms &amp; Guardians</span><span class="i18n-tr-inline">6 Hikâye Diyarı ve Boss'lar</span></h3>
+          <p class="i18n-en">Explore distinct realms packed with traps, secret rooms, mini-bosses, and challenging stage-3 guardians protecting ancient crystals.</p>
+          <p class="i18n-tr">Tuzaklar, gizli odalar, mini-boss'lar ve kadim kristalleri koruyan güçlü 3. bölüm boss'larıyla dolu 6 benzersiz diyarı keşfet.</p>
+        </article>
+
+        <article class="card">
+          <h3><span class="dot dot-purple"></span><span class="i18n-en-inline">Side Quest Rifts</span><span class="i18n-tr-inline">Yan Görev Yarıkları</span></h3>
+          <p class="i18n-en">Unlock the secondary portal after clearing the first three story worlds to battle mixed-biome enemies across three challenging side quest maps.</p>
+          <p class="i18n-tr">İlk 3 ana dünyayı tamamladıktan sonra ikinci portalı aç; farklı haritalardan karışık gelen güçlü düşmanlarla 3 yan görev haritasında çarpış.</p>
+        </article>
+
+        <article class="card">
+          <h3><span class="dot dot-coral"></span><span class="i18n-en-inline">Endless Mode</span><span class="i18n-tr-inline">Sonsuz Mod</span></h3>
+          <p class="i18n-en">Complete all Side Quest Rifts to unlock Endless Mode, dynamically fusing different realms into three-stage runs every time you enter.</p>
+          <p class="i18n-tr">Tüm yan görevleri tamamlayarak Sonsuz Mod'u aç; her girişte farklı diyarları birleştiren 3 bölümlü dinamik zindanlara dal.</p>
+        </article>
+
+        <article class="card">
+          <h3><span class="dot dot-green"></span><span class="i18n-en-inline">Village, Blacksmith &amp; Garden</span><span class="i18n-tr-inline">Köy, Demirci ve Bahçe</span></h3>
+          <p class="i18n-en">Invest gold and gems to upgrade village buildings, reforge equipment stats at the Blacksmith, harvest buffs in the Garden, and unlock heroes.</p>
+          <p class="i18n-tr">Altın ve mücevherlerinle köy binalarını geliştir, Demircide ekipman özelliklerini yenile, Bahçeden güçlendirmeler hasat et ve yeni kahramanlar aç.</p>
+        </article>
+
+        <article class="card">
+          <h3><span class="dot dot-turq"></span><span class="i18n-en-inline">Automatic Stage Checkpoints</span><span class="i18n-tr-inline">Otomatik Bölüm Kaydı</span></h3>
+          <p class="i18n-en">Progress is saved locally after Stage 1 and Stage 2, letting you close the game safely and resume your run right from the World Map.</p>
+          <p class="i18n-tr">1. ve 2. bölümü tamamladıktan sonra ilerlemen cihazına otomatik kaydedilir; oyundan çıksan bile Dünya Haritası üzerinden kaldığın bölümden devam edersin.</p>
+        </article>
+
+        <article class="card">
+          <h3><span class="dot dot-gold"></span><span class="i18n-en-inline">Offline Single-Player Friendly</span><span class="i18n-tr-inline">Hesapsız Tek Oyunculu Deneyim</span></h3>
+          <p class="i18n-en">No sign-up or account required. Play smoothly offline on your Android device with intuitive drag movement, dodge rolls, and auto-attack.</p>
+          <p class="i18n-tr">Kayıt veya hesap gerekmez. Sezgisel tek parmak hareket, kaçınma taklası ve otomatik saldırı ile çevrimdışı olarak akıcı şekilde oyna.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="meta-panel">
+        <div>
+          <strong class="i18n-en-inline">Application Package ID:</strong>
+          <strong class="i18n-tr-inline">Uygulama Paket Adı:</strong>
+          <code>com.tinyrealms.roguelite</code>
+        </div>
+        <div>
+          <strong class="i18n-en-inline">Developer Contact:</strong>
+          <strong class="i18n-tr-inline">Geliştirici İletişim:</strong>
+          <a href="mailto:tinyrealms@hotmail.com">tinyrealms@hotmail.com</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <div>
+        &copy; 2026 Tiny Realms.
+        <span class="i18n-en-inline">All rights reserved.</span>
+        <span class="i18n-tr-inline">Tüm hakları saklıdır.</span>
+      </div>
+      <div class="footer-links">
+        <a href="./privacy.html">
+          <span class="i18n-en-inline">Privacy Policy</span>
+          <span class="i18n-tr-inline">Gizlilik Politikası</span>
+        </a>
+        <a href="./terms.html">
+          <span class="i18n-en-inline">Terms of Service</span>
+          <span class="i18n-tr-inline">Kullanım Koşulları</span>
+        </a>
+        <a href="./support.html">
+          <span class="i18n-en-inline">Support</span>
+          <span class="i18n-tr-inline">Destek</span>
+        </a>
+        <a href="./app-ads.txt">app-ads.txt</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function setLang(lang) {
+      var isTr = lang === 'tr';
+      document.body.classList.toggle('lang-tr', isTr);
+      document.documentElement.lang = isTr ? 'tr' : 'en';
+      document.getElementById('btn-en').classList.toggle('active', !isTr);
+      document.getElementById('btn-tr').classList.toggle('active', isTr);
+      try { localStorage.setItem('tinyrealms_lang', isTr ? 'tr' : 'en'); } catch (e) {}
+    }
+    (function () {
+      try {
+        var q = new URLSearchParams(window.location.search).get('lang');
+        var saved = localStorage.getItem('tinyrealms_lang');
+        if (q === 'tr' || (!q && saved === 'tr')) setLang('tr');
+      } catch (e) {}
+    })();
+  </script>
+</body>
+</html>

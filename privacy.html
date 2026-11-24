@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy — Tiny Realms</title>
+  <meta name="description" content="Privacy Policy for Tiny Realms (com.tinyrealms.roguelite), covering local device storage, Google AdMob advertising, and Google UMP user consent." />
+  <meta name="theme-color" content="#1C202E" />
+  <link rel="icon" type="image/png" href="./assets/icon-round.png" />
+  <style>
+    :root {
+      --ink: #1C202E;
+      --surface: #272C3D;
+      --surface-alt: #212636;
+      --border: #3A4159;
+      --cream: #FFF3D9;
+      --muted: #C9C0AF;
+      --gold: #FFD76A;
+      --turq: #54DAC5;
+      --coral: #F47775;
+      --radius: 16px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: radial-gradient(circle at top center, #252B3F 0%, var(--ink) 62%);
+      color: var(--cream);
+      font-family: 'Segoe UI', system-ui, -apple-system, Roboto, sans-serif;
+      line-height: 1.7;
+      min-height: 100vh;
+    }
+
+    a { color: var(--turq); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .container {
+      width: 100%;
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(28, 32, 46, 0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      padding: 12px 0;
+      flex-wrap: wrap;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: 'Trebuchet MS', 'Segoe UI', system-ui, sans-serif;
+      font-weight: 800;
+      font-size: 1.15rem;
+      color: var(--cream);
+    }
+
+    .brand img {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      border: 2px solid var(--gold);
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      padding: 4px 6px;
+      border-radius: 8px;
+    }
+
+    .nav-links a.active,
+    .nav-links a:hover {
+      color: var(--gold);
+      text-decoration: none;
+      background: rgba(255, 215, 106, 0.08);
+    }
+
+    .lang-switch {
+      display: inline-flex;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .lang-btn {
+      background: transparent;
+      border: 0;
+      color: var(--muted);
+      font-weight: 700;
+      font-size: 0.82rem;
+      padding: 6px 10px;
+      cursor: pointer;
+    }
+
+    .lang-btn.active {
+      background: var(--gold);
+      color: var(--ink);
+    }
+
+    main { padding: 34px 0 24px; }
+
+    .doc-header {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 26px;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      font-family: 'Trebuchet MS', 'Segoe UI', system-ui, sans-serif;
+      font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+      margin: 0 0 8px;
+      color: var(--gold);
+    }
+
+    .meta {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .meta code {
+      background: var(--ink);
+      color: var(--turq);
+      padding: 2px 7px;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+    }
+
+    .policy-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px 26px;
+      margin-bottom: 16px;
+    }
+
+    .policy-card h2 {
+      font-family: 'Trebuchet MS', 'Segoe UI', system-ui, sans-serif;
+      font-size: 1.22rem;
+      margin: 0 0 10px;
+      color: var(--gold);
+    }
+
+    .policy-card p {
+      margin: 0 0 12px;
+      color: var(--cream);
+    }
+
+    .policy-card p:last-child { margin-bottom: 0; }
+
+    .policy-card ul {
+      margin: 0 0 12px;
+      padding-left: 20px;
+      color: var(--muted);
+    }
+
+    .policy-card li { margin-bottom: 6px; }
+    .policy-card li strong { color: var(--cream); }
+
+    .callout {
+      background: var(--surface-alt);
+      border-left: 4px solid var(--turq);
+      border-radius: 10px;
+      padding: 12px 16px;
+      color: var(--muted);
+      font-size: 0.94rem;
+      margin-top: 10px;
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      margin-top: 28px;
+      padding: 24px 0 36px;
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+
+    .footer-inner {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 14px;
+      align-items: center;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .i18n-tr { display: none; }
+    .i18n-tr-inline { display: none; }
+    body.lang-tr .i18n-en { display: none; }
+    body.lang-tr .i18n-en-inline { display: none; }
+    body.lang-tr .i18n-tr { display: block; }
+    body.lang-tr .i18n-tr-inline { display: inline; }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container nav-inner">
+      <a class="brand" href="./index.html">
+        <img src="./assets/icon-round.png" alt="Tiny Realms icon" />
+        <span>Tiny Realms</span>
+      </a>
+      <div class="nav-right">
+        <nav class="nav-links" aria-label="Main navigation">
+          <a href="./index.html">
+            <span class="i18n-en-inline">Home</span>
+            <span class="i18n-tr-inline">Ana Sayfa</span>
+          </a>
+          <a class="active" href="./privacy.html">
+            <span class="i18n-en-inline">Privacy</span>
+            <span class="i18n-tr-inline">Gizlilik</span>
+          </a>
+          <a href="./terms.html">
+            <span class="i18n-en-inline">Terms</span>
+            <span class="i18n-tr-inline">Koşullar</span>
+          </a>
+          <a href="./support.html">
+            <span class="i18n-en-inline">Support</span>
+            <span class="i18n-tr-inline">Destek</span>
+          </a>
+        </nav>
+        <div class="lang-switch" role="group" aria-label="Language switch">
+          <button type="button" class="lang-btn active" id="btn-en" onclick="setLang('en')">EN</button>
+          <button type="button" class="lang-btn" id="btn-tr" onclick="setLang('tr')">TR</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="doc-header">
+      <h1>
+        <span class="i18n-en-inline">Privacy Policy</span>
+        <span class="i18n-tr-inline">Gizlilik Politikası</span>
+      </h1>
+      <div class="meta i18n-en">
+        <strong>App:</strong> Tiny Realms &nbsp;|&nbsp;
+        <strong>Package:</strong> <code>com.tinyrealms.roguelite</code> &nbsp;|&nbsp;
+        <strong>Effective Date:</strong> November 24, 2026
+      </div>
+      <div class="meta i18n-tr">
+        <strong>Uygulama:</strong> Tiny Realms &nbsp;|&nbsp;
+        <strong>Paket Adı:</strong> <code>com.tinyrealms.roguelite</code> &nbsp;|&nbsp;
+        <strong>Yürürlük Tarihi:</strong> 24 Kasım 2026
+      </div>
+    </section>
+
+    <div class="i18n-en">
+      <section class="policy-card">
+        <h2>1. Overview &amp; Scope</h2>
+        <p>
+          This Privacy Policy explains how <strong>Tiny Realms</strong> (Android package <code>com.tinyrealms.roguelite</code>) handles information when you play the mobile game.
+        </p>
+        <p>
+          Tiny Realms is an offline single-player roguelite game. The developer does <strong>not</strong> require user registration or login, does <strong>not</strong> collect personal contact details such as your name, email address, phone number, or physical address inside the app, and does <strong>not</strong> operate private backend game servers.
+        </p>
+      </section>
+
+      <section class="policy-card">
+        <h2>2. Data Stored Locally on Your Device</h2>
+        <p>
+          All gameplay progress is stored strictly locally on your Android device in app-private storage (internal app files and private preferences), including:
+        </p>
+        <ul>
+          <li><strong>Game Save &amp; Progress:</strong> Unlocked heroes, village upgrades, blacksmith equipment reforges, garden timers, completed story realms, Side Quest Rifts, Endless Mode records, and automatic Stage 1 / Stage 2 checkpoints.</li>
+          <li><strong>Settings &amp; Ad Cooldowns:</strong> Audio volume settings, screen shake and damage number toggles, daily rewarded ad limits, and privacy consent state managed locally by Google UMP.</li>
+        </ul>
+        <div class="callout">
+          <strong>Backup &amp; Deletion:</strong> Android cloud/ADB backup is disabled (<code>allowBackup="false"</code>) for Tiny Realms. You can permanently delete all local game data at any time inside the game via <strong>Settings &rarr; Save data &rarr; Reset All Progress</strong> or by uninstalling the app from your device.
+        </div>
+      </section>
+
+      <section class="policy-card">
+        <h2>3. Third-Party Advertising &amp; Consent SDKs (Google AdMob &amp; UMP)</h2>
+        <p>
+          Tiny Realms displays optional Rewarded Ads (for in-game bonuses such as revives, extra gold/gems, shop restocks, or instant garden harvest) and Interstitial Ads using <strong>Google AdMob</strong> and the <strong>Google User Messaging Platform (UMP)</strong> SDK.
+        </p>
+        <p>
+          While the developer does not directly store or sell personal data, Google Mobile Ads SDK may automatically collect and share certain technical and advertising data to serve, personalize (subject to your consent), measure, and prevent fraud on ads:
+        </p>
+        <ul>
+          <li><strong>Device or Other Identifiers:</strong> Google Advertising ID (<code>AD_ID</code>) and app set identifiers.</li>
+          <li><strong>Approximate Location:</strong> General country/region or city derived from your IP address (never precise GPS location).</li>
+          <li><strong>App Activity &amp; Ad Interactions:</strong> Ad views, clicks, and related interaction signals used for frequency capping and attribution.</li>
+          <li><strong>App Info &amp; Performance:</strong> Crash logs and diagnostic telemetry generated by the Google Mobile Ads SDK.</li>
+        </ul>
+        <p>
+          You can review how Google processes data here:
+        </p>
+        <ul>
+          <li><a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google Privacy Policy</a></li>
+          <li><a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener noreferrer">How Google Uses Information From Sites or Apps That Use Our Services</a></li>
+          <li><a href="https://support.google.com/admob/answer/6128543" target="_blank" rel="noopener noreferrer">Google AdMob &amp; Privacy Overview</a></li>
+        </ul>
+      </section>
+
+      <section class="policy-card">
+        <h2>4. Data Security</h2>
+        <p>
+          All network communication performed by the Google Mobile Ads and UMP SDKs is encrypted in transit using HTTPS/TLS. Unencrypted cleartext HTTP traffic is disabled at the application manifest level (<code>usesCleartextTraffic="false"</code>).
+        </p>
+      </section>
+
+      <section class="policy-card">
+        <h2>5. Managing Ad Consent &amp; Opt-Out</h2>
+        <p>
+          In regions where privacy consent is legally required (such as the European Economic Area and the UK), Tiny Realms presents a consent dialog via Google UMP before requesting ads. You can update or withdraw your consent choices at any time:
+        </p>
+        <ul>
+          <li><strong>In the App:</strong> Open <strong>Settings &rarr; Privacy &amp; Ads &rarr; Ad Privacy Options</strong> (available whenever privacy options are required in your region).</li>
+          <li><strong>In Android Settings:</strong> Go to <strong>Android Settings &rarr; Privacy / Google &rarr; Ads</strong> to reset your Advertising ID or opt out of Ads Personalization.</li>
+        </ul>
+      </section>
+
+      <section class="policy-card">
+        <h2>6. Children's Privacy (COPPA)</h2>
+        <p>
+          Tiny Realms is intended for general audiences aged <strong>13 and older</strong>. We do not knowingly collect personal information from children under 13. If you are a parent or guardian and believe your child has provided personal information, please contact us so we can address it promptly.
+        </p>
+      </section>
+
+      <section class="policy-card">
+        <h2>7. Your Privacy Rights (GDPR &amp; CCPA/CPRA)</h2>
+        <p>
+          Depending on your region (including the EEA, UK, Switzerland, or California), you may have rights to access, erase, restrict, or object to the processing of personal data. Because Tiny Realms does not store your personal data on developer servers, local gameplay data can be erased directly in the app or by uninstalling, and ad-related consent/tracking can be controlled via the in-game privacy options and Google's ad controls.
+        </p>
+      </section>
+
+      <section class="policy-card">
+        <h2>8. Changes &amp; Contact Us</h2>
+        <p>
+          We may update this Privacy Policy from time to time to reflect app updates or legal requirements. Changes take effect once posted on this page with an updated effective date.
+        </p>
+        <p>
+          If you have any questions about this Privacy Policy, please contact us at:<br />
+          <strong>Email:</strong> <a href="mailto:tinyrealms@hotmail.com">tinyrealms@hotmail.com</a>
+        </p>
+      </section>
+    </div>
+
+    <div class="i18n-tr">
+      <section class="policy-card">
+        <h2>1. Genel Bakış ve Kapsam</h2>
+        <p>
+          Bu Gizlilik Politikası, <strong>Tiny Realms</strong> mobil oyununun (Android paket adı: <code>com.tinyrealms.roguelite</code>) bilgileri nasıl işlediğini açıklar.
+        </p>
+        <p>
+          Tiny Realms çevrimdışı oynanabilen tek oyunculu bir roguelite oyunudur. Geliştirici uygulama içinde hesap açma veya giriş yapma <strong>istemez</strong>; ad, e-posta, telefon veya açık adres gibi kişisel bilgileri <strong>toplamaz</strong> ve özel bir arka uç (backend) oyun sunucusu <strong>çalıştırmaz</strong>.
+        </p>
+      </section>
+
+      <section class="policy-card">
+        <h2>2. Cihazınızda Yerel Olarak Saklanan Veriler</h2>
+        <p>
+          Tüm oyun ilerlemeniz yalnızca kendi Android cihazınızda, uygulamaya özel korumalı alanda (dahili depolama ve özel tercih dosyaları) saklanır:
+        </p>
+        <ul>
+          <li><strong>Oyun Kaydı ve İlerleme:</strong> Açılan kahramanlar, köy geliştirmeleri, demirci ekipman yenilemeleri, bahçe sayaçları, tamamlanan hikâye dünyaları, Yan Görev Yarıkları, Sonsuz Mod rekorları ve otomatik 1. / 2. bölüm kayıt noktaları.</li>
+          <li><strong>Ayarlar ve Reklam Sayaçları:</strong> Ses seviyeleri, ekran sarsıntısı ve hasar sayıları tercihleri, günlük ödüllü reklam sınırları ve Google UMP tarafından yerel tutulan rıza durumu.</li>
+        </ul>
+        <div class="callout">
+          <strong>Yedekleme ve Silme:</strong> Tiny Realms için Android yedeklemesi kapalıdır (<code>allowBackup="false"</code>). Tüm yerel verilerinizi istediğiniz zaman oyun içinden <strong>Settings &rarr; Save data &rarr; Reset All Progress</strong> yolunu izleyerek veya uygulamayı cihazınızdan kaldırarak kalıcı olarak silebilirsiniz.
+        </div>
+      </section>
+
+      <section class="policy-card">
+        <h2>3. Üçüncü Taraf Reklam ve Rıza SDK'ları (Google AdMob &amp; UMP)</h2>
+        <p>
+          Tiny Realms, isteğe bağlı Ödüllü Reklamlar (canlanma, ekstra altın/mücevher, dükkân yenileme veya anında bahçe hasadı gibi oyun içi ödüller) ve Geçiş Reklamları sunmak için <strong>Google AdMob</strong> ve <strong>Google User Messaging Platform (UMP)</strong> kullanır.
+        </p>
+        <p>
+          Geliştirici kişisel verileri doğrudan depolamasa veya satmasa da Google Mobile Ads SDK'sı reklam sunmak, rızanıza bağlı olarak kişiselleştirmek, performansı ölçmek ve sahtekarlığı önlemek amacıyla aşağıdaki teknik/reklam verilerini işleyebilir ve paylaşabilir:
+        </p>
+        <ul>
+          <li><strong>Cihaz veya Diğer Kimlikler:</strong> Google Reklam Kimliği (<code>AD_ID</code>) ve uygulama seti tanımlayıcıları.</li>
+          <li><strong>Yaklaşık Konum:</strong> IP adresinden türetilen genel ülke/şehir bilgisi (kesin GPS konumu hiçbir zaman alınmaz).</li>
+          <li><strong>Uygulama Etkinliği ve Reklam Etkileşimleri:</strong> Sıklık sınırlaması ve ölçüm için reklam gösterim/tıklama sinyalleri.</li>
+          <li><strong>Uygulama Bilgileri ve Performansı:</strong> Google Mobile Ads SDK tarafından oluşturulan kilitlenme günlükleri ve tanılama verileri.</li>
+        </ul>
+        <p>
+          Google'ın veri işleme politikalarını buradan inceleyebilirsiniz:
+        </p>
+        <ul>
+          <li><a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google Gizlilik Politikası</a></li>
+          <li><a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener noreferrer">Google'ın Hizmetlerimizi Kullanan Site veya Uygulamalardan Gelen Bilgileri Kullanımı</a></li>
+          <li><a href="https://support.google.com/admob/answer/6128543" target="_blank" rel="noopener noreferrer">Google AdMob ve Gizlilik Özeti</a></li>
+        </ul>
+      </section>
+
+      <section class="policy-card">
+        <h2>4. Veri Güvenliği</h2>
+        <p>
+          Google Mobile Ads ve UMP SDK'ları tarafından gerçekleştirilen tüm ağ trafiği aktarım sırasında HTTPS/TLS ile şifrelenir. Uygulama manifest düzeyinde şifrelenmemiş HTTP trafiği devre dışı bırakılmıştır (<code>usesCleartextTraffic="false"</code>).
+        </p>
+      </section>
+
+      <section class="policy-card">
+        <h2>5. Reklam Rızasını Yönetme ve Kişiselleştirmeyi Kapatma</h2>
+        <p>
+          Yasal rızanın zorunlu olduğu bölgelerde (Avrupa Ekonomik Alanı ve Birleşik Krallık gibi), Tiny Realms reklam istemeden önce Google UMP üzerinden rıza formu gösterir. Tercihlerinizi istediğiniz zaman değiştirebilirsiniz:
+        </p>
+        <ul>
+          <li><strong>Uygulama İçinden:</strong> Bölgenizde gerektiğinde aktif olan <strong>Settings &rarr; Privacy &amp; Ads &rarr; Ad Privacy Options</strong> menüsünden.</li>
+          <li><strong>Android Ayarlarından:</strong> Cihazınızın <strong>Ayarlar &rarr; Gizlilik / Google &rarr; Reklamlar</strong> bölümünden Reklam Kimliğinizi sıfırlayabilir veya reklam kişiselleştirmesini kapatabilirsiniz.</li>
+        </ul>
+      </section>
+
+      <section class="policy-card">
+        <h2>6. Çocukların Gizliliği (COPPA)</h2>
+        <p>
+          Tiny Realms <strong>13 yaş ve üzeri</strong> genel kitleye yöneliktir. 13 yaşın altındaki çocuklardan bilerek kişisel bilgi toplamayız. Çocuğunuzun kişisel bilgi paylaştığını düşünen bir ebeveyn veya vasi iseniz lütfen bizimle iletişime geçin.
+        </p>
+      </section>
+
+      <section class="policy-card">
+        <h2>7. Gizlilik Haklarınız (GDPR &amp; CCPA/CPRA)</h2>
+        <p>
+          Bulunduğunuz bölgeye göre (AEA, Birleşik Krallık, İsviçre veya Kaliforniya dahil) verilerinize erişme, silme, kısıtlama veya itiraz etme haklarına sahip olabilirsiniz. Tiny Realms geliştirici sunucularında kişisel veri tutmadığından yerel oyun verilerinizi uygulama içinden veya uygulamayı kaldırarak silebilir, reklam tercihlerini oyun içi gizlilik ayarlarından yönetebilirsiniz.
+        </p>
+      </section>
+
+      <section class="policy-card">
+        <h2>8. Değişiklikler ve İletişim</h2>
+        <p>
+          Uygulama güncellemeleri veya yasal gereksinimler doğrultusunda bu politikayı zaman zaman güncelleyebiliriz. Değişiklikler güncellenmiş yürürlük tarihiyle bu sayfada yayımlandığında geçerli olur.
+        </p>
+        <p>
+          Gizlilik politikasıyla ilgili sorularınız için bize ulaşabilirsiniz:<br />
+          <strong>E-posta:</strong> <a href="mailto:tinyrealms@hotmail.com">tinyrealms@hotmail.com</a>
+        </p>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <div>&copy; 2026 Tiny Realms (<code>com.tinyrealms.roguelite</code>)</div>
+      <div class="footer-links">
+        <a href="./index.html">
+          <span class="i18n-en-inline">Home</span>
+          <span class="i18n-tr-inline">Ana Sayfa</span>
+        </a>
+        <a href="./terms.html">
+          <span class="i18n-en-inline">Terms of Service</span>
+          <span class="i18n-tr-inline">Kullanım Koşulları</span>
+        </a>
+        <a href="./support.html">
+          <span class="i18n-en-inline">Support</span>
+          <span class="i18n-tr-inline">Destek</span>
+        </a>
+        <a href="./app-ads.txt">app-ads.txt</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function setLang(lang) {
+      var isTr = lang === 'tr';
+      document.body.classList.toggle('lang-tr', isTr);
+      document.documentElement.lang = isTr ? 'tr' : 'en';
+      document.getElementById('btn-en').classList.toggle('active', !isTr);
+      document.getElementById('btn-tr').classList.toggle('active', isTr);
+      try { localStorage.setItem('tinyrealms_lang', isTr ? 'tr' : 'en'); } catch (e) {}
+    }
+    (function () {
+      try {
+        var q = new URLSearchParams(window.location.search).get('lang');
+        var saved = localStorage.getItem('tinyrealms_lang');
+        if (q === 'tr' || (!q && saved === 'tr')) setLang('tr');
+      } catch (e) {}
+    })();
+  </script>
+</body>
+</html>

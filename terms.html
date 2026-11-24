@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Terms of Service — Tiny Realms</title>
+  <meta name="description" content="Terms of Service for Tiny Realms (com.tinyrealms.roguelite) on Android." />
+  <meta name="theme-color" content="#1C202E" />
+  <link rel="icon" type="image/png" href="./assets/icon-round.png" />
+  <style>
+    :root {
+      --ink: #1C202E;
+      --surface: #272C3D;
+      --surface-alt: #212636;
+      --border: #3A4159;
+      --cream: #FFF3D9;
+      --muted: #C9C0AF;
+      --gold: #FFD76A;
+      --turq: #54DAC5;
+      --coral: #F47775;
+      --radius: 16px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: radial-gradient(circle at top center, #252B3F 0%, var(--ink) 62%);
+      color: var(--cream);
+      font-family: 'Segoe UI', system-ui, -apple-system, Roboto, sans-serif;
+      line-height: 1.7;
+      min-height: 100vh;
+    }
+
+    a { color: var(--turq); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .container {
+      width: 100%;
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(28, 32, 46, 0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      padding: 12px 0;
+      flex-wrap: wrap;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: 'Trebuchet MS', 'Segoe UI', system-ui, sans-serif;
+      font-weight: 800;
+      font-size: 1.15rem;
+      color: var(--cream);
+    }
+
+    .brand img {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      border: 2px solid var(--gold);
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      padding: 4px 6px;
+      border-radius: 8px;
+    }
+
+    .nav-links a.active,
+    .nav-links a:hover {
+      color: var(--gold);
+      text-decoration: none;
+      background: rgba(255, 215, 106, 0.08);
+    }
+
+    .lang-switch {
+      display: inline-flex;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .lang-btn {
+      background: transparent;
+      border: 0;
+      color: var(--muted);
+      font-weight: 700;
+      font-size: 0.82rem;
+      padding: 6px 10px;
+      cursor: pointer;
+    }
+
+    .lang-btn.active {
+      background: var(--gold);
+      color: var(--ink);
+    }
+
+    main { padding: 34px 0 24px; }
+
+    .doc-header {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 26px;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      font-family: 'Trebuchet MS', 'Segoe UI', system-ui, sans-serif;
+      font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+      margin: 0 0 8px;
+      color: var(--gold);
+    }
+
+    .meta {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .meta code {
+      background: var(--ink);
+      color: var(--turq);
+      padding: 2px 7px;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+    }
+
+    .policy-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px 26px;
+      margin-bottom: 16px;
+    }
+
+    .policy-card h2 {
+      font-family: 'Trebuchet MS', 'Segoe UI', system-ui, sans-serif;
+      font-size: 1.22rem;
+      margin: 0 0 10px;
+      color: var(--gold);
+    }
+
+    .policy-card p {
+      margin: 0 0 12px;
+      color: var(--cream);
+    }
+
+    .policy-card p:last-child { margin-bottom: 0; }
+
+    .policy-card ul {
+      margin: 0 0 12px;
+      padding-left: 20px;
+      color: var(--muted);
+    }
+
+    .policy-card li { margin-bottom: 6px; }
+    .policy-card li strong { color: var(--cream); }
+
+    footer {
+      border-top: 1px solid var(--border);
+      margin-top: 28px;
+      padding: 24px 0 36px;
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+
+    .footer-inner {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 14px;
+      align-items: center;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .i18n-tr { display: none; }
+    .i18n-tr-inline { display: none; }
+    body.lang-tr .i18n-en { display: none; }
+    body.lang-tr .i18n-en-inline { display: none; }
+    body.lang-tr .i18n-tr { display: block; }
+    body.lang-tr .i18n-tr-inline { display: inline; }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container nav-inner">
+      <a class="brand" href="./index.html">
+        <img src="./assets/icon-round.png" alt="Tiny Realms icon" />
+        <span>Tiny Realms</span>
+      </a>
+      <div class="nav-right">
+        <nav class="nav-links" aria-label="Main navigation">
+          <a href="./index.html">
+            <span class="i18n-en-inline">Home</span>
+            <span class="i18n-tr-inline">Ana Sayfa</span>
+          </a>
+          <a href="./privacy.html">
+            <span class="i18n-en-inline">Privacy</span>
+            <span class="i18n-tr-inline">Gizlilik</span>
+          </a>
+          <a class="active" href="./terms.html">
+            <span class="i18n-en-inline">Terms</span>
+            <span class="i18n-tr-inline">Koşullar</span>
+          </a>
+          <a href="./support.html">
+            <span class="i18n-en-inline">Support</span>
+            <span class="i18n-tr-inline">Destek</span>
+          </a>
+        </nav>
+        <div class="lang-switch" role="group" aria-label="Language switch">
+          <button type="button" class="lang-btn active" id="btn-en" onclick="setLang('en')">EN</button>
+          <button type="button" class="lang-btn" id="btn-tr" onclick="setLang('tr')">TR</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="doc-header">
+      <h1>
+        <span class="i18n-en-inline">Terms of Service</span>
+        <span class="i18n-tr-inline">Kullanım Koşulları</span>
+      </h1>
+      <div class="meta i18n-en">
+        <strong>App:</strong> Tiny Realms &nbsp;|&nbsp;
+        <strong>Package:</strong> <code>com.tinyrealms.roguelite</code> &nbsp;|&nbsp;
+        <strong>Last Updated:</strong> November 24, 2026
+      </div>
+      <div class="meta i18n-tr">
+        <strong>Uygulama:</strong> Tiny Realms &nbsp;|&nbsp;
+        <strong>Paket Adı:</strong> <code>com.tinyrealms.roguelite</code> &nbsp;|&nbsp;
+        <strong>Son Güncelleme:</strong> 24 Kasım 2026
+      </div>
+    </section>
+
+    <div class="i18n-en">
+      <section class="policy-card">
+        <h2>1. Acceptance of Terms &amp; License</h2>
+        <p>
+          By downloading, installing, or playing <strong>Tiny Realms</strong> (<code>com.tinyrealms.roguelite</code>), you agree to these Terms of Service and our <a href="./privacy.html">Privacy Policy</a>.
+        </p>
+        <p>
+          We grant you a limited, non-exclusive, non-transferable, revocable license to download and run Tiny Realms strictly for personal, non-commercial entertainment on compatible Android devices.
+        </p>
+      </section>
+
+      <section class="policy-card">
+        <h2>2. Virtual Items &amp; Currencies</h2>
+        <p>
+          All in-game resources—including gold, gems, equipment items, seeds, and realm crystals—exist solely as part of Tiny Realms gameplay. They hold <strong>no real-world monetary value</strong>, cannot be redeemed for real currency or goods, and cannot be transferred, traded, or sold outside the game.
+        </p>
+      </section>
+
+      <section class="policy-card">
+        <h2>3. Advertisements</h2>
+        <p>
+          Tiny Realms is free to play and supported by third-party advertising delivered by Google AdMob, including interstitial ads and optional rewarded video ads that grant in-game bonuses when watched voluntarily.
+        </p>
+        <p>
+          Advertisements and any linked external websites or apps belong to their respective third-party advertisers. The developer is not responsible for the content, products, or practices of third-party advertisers.
+        </p>
+      </section>
+
+      <section class="policy-card">
+        <h2>4. Local Save Data</h2>
+        <p>
+          Your Tiny Realms save data, checkpoints, and unlocks are stored locally on your device. Because there are no cloud accounts or servers, the developer cannot restore lost progress caused by device loss, OS corruption, uninstalling the game, or choosing <strong>Reset All Progress</strong> in Settings.
+        </p>
+      </section>
+
+      <section class="policy-card">
+        <h2>5. Acceptable Use</h2>
+        <p>You agree not to:</p>
+        <ul>
+          <li>Decompile, reverse engineer, tamper with, or modify the application binary or game assets beyond what applicable law permits.</li>
+          <li>Use automated scripts, bots, or artificial traffic to trigger or manipulate rewarded or interstitial ad impressions/clicks (ad fraud).</li>
+          <li>Redistribute, repackage, or commercially exploit Tiny Realms without prior written permission.</li>
+        </ul>
+      </section>
+
+      <section class="policy-card">
+        <h2>6. Disclaimer of Warranties &amp; Limitation of Liability</h2>
+        <p>
+          Tiny Realms is provided on an <strong>"AS IS"</strong> and <strong>"AS AVAILABLE"</strong> basis without warranties of any kind, express or implied, including uninterrupted availability or error-free operation on every Android device configuration.
+        </p>
+        <p>
+          To the maximum extent permitted by applicable law, the developer shall not be liable for any indirect, incidental, special, consequential, or punitive damages, or loss of local save data arising from your use of the game.
+        </p>
+      </section>
+
+      <section class="policy-card">
+        <h2>7. Changes to Terms &amp; Contact</h2>
+        <p>
+          We may update these Terms from time to time. Continued use of Tiny Realms after changes are posted constitutes acceptance of the updated Terms.
+        </p>
+        <p>
+          Questions regarding these Terms can be sent to:<br />
+          <strong>Email:</strong> <a href="mailto:tinyrealms@hotmail.com">tinyrealms@hotmail.com</a>
+        </p>
+      </section>
+    </div>
+
+    <div class="i18n-tr">
+      <section class="policy-card">
+        <h2>1. Koşulların Kabulü ve Lisans</h2>
+        <p>
+          <strong>Tiny Realms</strong> uygulamasını (<code>com.tinyrealms.roguelite</code>) indirerek, kurarak veya oynayarak bu Kullanım Koşullarını ve <a href="./privacy.html?lang=tr">Gizlilik Politikamızı</a> kabul etmiş olursunuz.
+        </p>
+        <p>
+          Size uyumlu Android cihazlarınızda yalnızca kişisel ve ticari olmayan eğlence amacıyla Tiny Realms'i kurup oynamanız için sınırlı, münhasır olmayan, devredilemez ve geri alınabilir bir kullanım lisansı verilmektedir.
+        </p>
+      </section>
+
+      <section class="policy-card">
+        <h2>2. Sanal Eşyalar ve Oyun İçi Birimler</h2>
+        <p>
+          Altın, mücevher, ekipman eşyaları, tohumlar ve diyar kristalleri dahil tüm oyun içi kaynaklar yalnızca Tiny Realms oynanışının parçasıdır. Bunların <strong>gerçek dünyada hiçbir parasal değeri yoktur</strong>, gerçek paraya dönüştürülemez ve oyun dışında devredilemez, takas edilemez veya satılamaz.
+        </p>
+      </section>
+
+      <section class="policy-card">
+        <h2>3. Reklamlar</h2>
+        <p>
+          Tiny Realms oynaması ücretsiz bir oyundur ve Google AdMob tarafından sunulan geçiş reklamları ile isteğe bağlı ödüllü video reklamlarla desteklenir.
+        </p>
+        <p>
+          Gösterilen reklamlar ve bağlantı verilen dış siteler/uygulamalar ilgili üçüncü taraf reklamverenlere aittir; geliştirici üçüncü taraf reklamların içeriğinden veya ürünlerinden sorumlu değildir.
+        </p>
+      </section>
+
+      <section class="policy-card">
+        <h2>4. Yerel Kayıt Verileri</h2>
+        <p>
+          Oyun ilerlemeniz, bölüm kayıt noktalarınız ve açılan içerikler cihazınızda yerel olarak saklanır. Bulut hesabı veya oyun sunucusu bulunmadığından cihaz kaybı, uygulamanın kaldırılması veya ayarlardan <strong>Reset All Progress</strong> seçilmesi sonucu silinen ilerlemeler geliştirici tarafından geri getirilemez.
+        </p>
+      </section>
+
+      <section class="policy-card">
+        <h2>5. Kabul Edilebilir Kullanım</h2>
+        <p>Aşağıdaki eylemleri gerçekleştirmemeyi kabul edersiniz:</p>
+        <ul>
+          <li>Uygulama paketini tersine mühendislikle çözmek, kaynakları kurcalamak veya yasanın açıkça izin verdiği sınırlar dışında değiştirmek.</li>
+          <li>Ödüllü veya geçiş reklamlarını otomatik botlar, betikler veya yapay trafikle manipüle etmek (reklam sahtekarlığı).</li>
+          <li>Yazılı izin olmaksızın Tiny Realms'i yeniden paketleyip dağıtmak veya ticari amaçla kullanmak.</li>
+        </ul>
+      </section>
+
+      <section class="policy-card">
+        <h2>6. Garanti Reddi ve Sorumluluğun Sınırlandırılması</h2>
+        <p>
+          Tiny Realms herhangi bir açık veya zımni garanti olmaksızın <strong>"OLDUĞU GİBİ"</strong> ve <strong>"MEVCUT OLDUĞU ŞEKİLDE"</strong> sunulur. Her Android cihazda kesintisiz veya hatasız çalışacağı garanti edilmez.
+        </p>
+        <p>
+          Uygulanabilir yasanın izin verdiği azami ölçüde geliştirici, oyunun kullanımından doğabilecek dolaylı, arızi veya yerel kayıt verisi kaybına bağlı zararlardan sorumlu tutulamaz.
+        </p>
+      </section>
+
+      <section class="policy-card">
+        <h2>7. Koşullarda Değişiklik ve İletişim</h2>
+        <p>
+          Bu Kullanım Koşulları zaman zaman güncellenebilir. Güncelleme yayımlandıktan sonra oyunu kullanmaya devam etmeniz yeni koşulları kabul ettiğiniz anlamına gelir.
+        </p>
+        <p>
+          Sorularınız için iletişim:<br />
+          <strong>E-posta:</strong> <a href="mailto:tinyrealms@hotmail.com">tinyrealms@hotmail.com</a>
+        </p>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <div>&copy; 2026 Tiny Realms (<code>com.tinyrealms.roguelite</code>)</div>
+      <div class="footer-links">
+        <a href="./index.html">
+          <span class="i18n-en-inline">Home</span>
+          <span class="i18n-tr-inline">Ana Sayfa</span>
+        </a>
+        <a href="./privacy.html">
+          <span class="i18n-en-inline">Privacy Policy</span>
+          <span class="i18n-tr-inline">Gizlilik Politikası</span>
+        </a>
+        <a href="./support.html">
+          <span class="i18n-en-inline">Support</span>
+          <span class="i18n-tr-inline">Destek</span>
+        </a>
+        <a href="./app-ads.txt">app-ads.txt</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function setLang(lang) {
+      var isTr = lang === 'tr';
+      document.body.classList.toggle('lang-tr', isTr);
+      document.documentElement.lang = isTr ? 'tr' : 'en';
+      document.getElementById('btn-en').classList.toggle('active', !isTr);
+      document.getElementById('btn-tr').classList.toggle('active', isTr);
+      try { localStorage.setItem('tinyrealms_lang', isTr ? 'tr' : 'en'); } catch (e) {}
+    }
+    (function () {
+      try {
+        var q = new URLSearchParams(window.location.search).get('lang');
+        var saved = localStorage.getItem('tinyrealms_lang');
+        if (q === 'tr' || (!q && saved === 'tr')) setLang('tr');
+      } catch (e) {}
+    })();
+  </script>
+</body>
+</html>
